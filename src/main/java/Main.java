@@ -37,15 +37,19 @@ public class Main {
         } while (!login.isRegistered());
 
         // --- Login ---
-        System.out.println("=== Log in ===");
-        System.out.print("Enter your username: ");
-        String loginUsername = scanner.nextLine();
+        boolean loginSuccessful = false;
+        do {
+            System.out.println("=== Log in ===");
+            System.out.print("Enter your username: ");
+            String loginUsername = scanner.nextLine();
 
-        System.out.print("Enter your password: ");
-        String loginPassword = scanner.nextLine();
+            System.out.print("Enter your password: ");
+            String loginPassword = scanner.nextLine();
 
-        boolean loginSuccessful = login.loginUser(loginUsername, loginPassword);
-        System.out.println(login.returnLoginStatus(loginSuccessful));
+            loginSuccessful = login.loginUser(loginUsername, loginPassword);
+            System.out.println(login.returnLoginStatus(loginSuccessful));
+            System.out.println();
+        } while (!loginSuccessful);
 
         scanner.close();
     }
