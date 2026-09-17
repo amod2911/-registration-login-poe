@@ -16,19 +16,19 @@ public class Main {
             System.out.println("=== Register a new account ===");
 
             System.out.print("Enter a username (must contain '_' and be no more than 5 characters): ");
-            String username = scanner.nextLine();
+            String username = scanner.nextLine().trim();
 
             System.out.print("Enter a password (8+ chars, capital letter, number, special character): ");
-            String password = scanner.nextLine();
+            String password = scanner.nextLine().trim();
 
             System.out.print("Enter your South African cell number (e.g. +27831234567): ");
-            String cellPhoneNumber = scanner.nextLine();
+            String cellPhoneNumber = scanner.nextLine().trim();
 
             System.out.print("Enter your first name: ");
-            String firstName = scanner.nextLine();
+            String firstName = scanner.nextLine().trim();
 
             System.out.print("Enter your last name: ");
-            String lastName = scanner.nextLine();
+            String lastName = scanner.nextLine().trim();
 
             registrationResult = login.registerUser(username, password, cellPhoneNumber, firstName, lastName);
             System.out.println(registrationResult);
@@ -41,10 +41,10 @@ public class Main {
         do {
             System.out.println("=== Log in ===");
             System.out.print("Enter your username: ");
-            String loginUsername = scanner.nextLine();
+            String loginUsername = scanner.nextLine().trim();
 
             System.out.print("Enter your password: ");
-            String loginPassword = scanner.nextLine();
+            String loginPassword = scanner.nextLine().trim();
 
             loginSuccessful = login.loginUser(loginUsername, loginPassword);
             System.out.println(login.returnLoginStatus(loginSuccessful));
