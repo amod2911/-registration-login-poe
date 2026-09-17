@@ -98,4 +98,16 @@ class LoginTest {
         assertFalse(result);
         assertEquals("Username or password incorrect, please try again.", login.returnLoginStatus(result));
     }
+    @Test
+void testUserNameExactlyFiveCharsWithUnderscore() {
+    assertTrue(login.checkUserName("ky_12")); // exactly 5 chars, has underscore
+}
+    @Test
+    void testUserNameNoUnderscoreButShortEnough() {
+        assertFalse(login.checkUserName("kyle")); // short but missing underscore
+    }
+    @Test
+    void testPasswordMissingSpecialCharacter() {
+        assertFalse(login.checkPasswordComplexity("Password99"));
+    }
 }
